@@ -2,8 +2,12 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import produtosRouter from './routes/produtos';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use('/produtos', produtosRouter);
 
 app.get('/', (req, res ) => {
     res.send('Servidor online!')
@@ -17,3 +21,5 @@ app.listen ( PORT, () => {
         console.error('Erro ao iniciar o servidor:', error);
     }
 })
+
+
